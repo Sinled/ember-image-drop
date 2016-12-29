@@ -29,7 +29,7 @@ export default Ember.Component.extend({
     return Ember.String.htmlSafe(backgroundStyle);
   }),
 
-  setup: Ember.on('willInsertElement', function() {
+  setup: Ember.on('didInsertElement', function() {
     const $input = this.$('input');
     $input.on('change', (event) => {
       this.handleFileDrop(event.target.files[0]);
