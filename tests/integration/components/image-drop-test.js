@@ -1,3 +1,4 @@
+import { findAll, find } from '@ember/test-helpers';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -14,11 +15,11 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{image-drop}}`);
 
-  assert.equal(this.$('.ember-image-drop').length, 1);
-  assert.equal(this.$('.ember-image-drop input').length, 1);
-  assert.equal(this.$('.ember-image-drop .text').length, 1);
-  assert.equal(this.$('.ember-image-drop .placeholder').length, 1);
-  assert.equal(this.$('.ember-image-drop .help-text').length, 1);
+  assert.equal(findAll('.ember-image-drop').length, 1);
+  assert.equal(findAll('.ember-image-drop input').length, 1);
+  assert.equal(findAll('.ember-image-drop .text').length, 1);
+  assert.equal(findAll('.ember-image-drop .placeholder').length, 1);
+  assert.equal(findAll('.ember-image-drop .help-text').length, 1);
 });
 
 test('text data is set correctly', function(assert) {
@@ -26,8 +27,8 @@ test('text data is set correctly', function(assert) {
 
   this.render(hbs`{{image-drop placeholder="banana" helpText="help!"}}`);
 
-  assert.equal(this.$('.ember-image-drop .placeholder').text(), "banana");
-  assert.equal(this.$('.ember-image-drop .help-text').text(), "help!");
+  assert.equal(find('.ember-image-drop .placeholder').textContent, "banana");
+  assert.equal(find('.ember-image-drop .help-text').textContent, "help!");
 });
 
 test('background image updates with image', function(assert) {
